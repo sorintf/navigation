@@ -1,17 +1,24 @@
-import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
-import { Text, View } from "react-native";
+// In App.js in a new project
 
-const App = () => {
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { View, Text } from 'react-native';
+
+import Home from './src/home';
+import Users from './src/users';
+
+const Stack = createNativeStackNavigator();
+
+function App() {
   return (
     <NavigationContainer>
-      <View>
-        <Text>
-          Hello
-        </Text>
-      </View>
+      <Stack.Navigator initialRouteName='Home'>
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Users" component={Users} />
+      </Stack.Navigator>
     </NavigationContainer>
-  )
+  );
 }
 
 export default App;
