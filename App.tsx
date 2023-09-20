@@ -7,6 +7,7 @@ import { View, Text } from 'react-native';
 
 import Home from './src/home';
 import Users from './src/users';
+import LogoTitle from './src/utlis/logoTitle';
 
 const Stack = createNativeStackNavigator();
 // https://reactnavigation.org/docs/headers
@@ -38,7 +39,9 @@ function App() {
           component={Users} 
           initialParams={{ id:1, codeName:'Iron Horse' }}
           options={{
-            title:'x-users'
+            // this is replacing the structure of the title so the styling is no longer applied
+            headerTitle: props => LogoTitle(props)
+            // title:'x-users'
           }}
         />
       </Stack.Navigator>
