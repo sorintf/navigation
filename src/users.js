@@ -1,15 +1,20 @@
 import React from "react";
 import { Text, View, Button } from "react-native";
 
-const Users = (props) => {
+const Users = ({route,navigation}) => {
+    const {id,codeName} = route.params;
+
     return(
         <View>
-            <Text>Users Component</Text>
+            <Text>ID: {id} Component</Text>
+            <Text>CodeName: {codeName}</Text>
             <Button
                 color="#f0f"
                 title="Go back"
                 // onPress={()=>props.navigation.navigate('Home')}
-                onPress={ () => props.navigation.goBack() }
+                onPress={ () => navigation.navigate('Home', {
+                    active:'yes'
+                }) }
             />
         </View>
     )

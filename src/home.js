@@ -8,10 +8,19 @@ const Home = (props) => {
     return(
         <View>
             <Text>Home Component</Text>
+            <Text>
+                { 
+                    props.route.params?
+                    props.route.params.active
+                    :null
+                }
+            </Text>
             <Button
                 color="#f00"
                 title="Go to users"
-                onPress={()=>props.navigation.navigate('Users')}
+                onPress={ ()=>props.navigation.navigate('Users', {
+                    id:23
+                }) }
             />
         </View>
     )
