@@ -14,6 +14,7 @@ const Stack = createNativeStackNavigator();
 // https://reactnavigation.org/docs/stack-navigator/
 
 const defaultHeader = {
+  headerTitleAlign:'center',
   headerStyle:{ backgroundColor:'#ffa3f388' }, 
   headerBlurEffect:'light', 
   // headerTransparent:true // cu true devine pozitionat absolute
@@ -30,7 +31,8 @@ function App() {
       <Stack.Navigator 
         initialRouteName='Home' 
         screenOptions={{
-          ...defaultHeader
+          ...defaultHeader, 
+          headerTitle: props => LogoTitle(props)
         }}
       >
         <Stack.Screen name="Home" component={Home} />
@@ -40,7 +42,7 @@ function App() {
           initialParams={{ id:1, codeName:'Iron Horse' }}
           options={{
             // this is replacing the structure of the title so the styling is no longer applied
-            headerTitle: props => LogoTitle(props)
+            // headerTitle: props => LogoTitle(props)
             // title:'x-users'
           }}
         />

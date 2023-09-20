@@ -5,7 +5,7 @@ import Logo from '../assets/baguette.png';
 // import Logo from '../assets/logo-sustine-binele.svg'; // nu merge svg
 // TODO: de vazut cum se pot include SVG
 
-const LogoTitle = () => {
+const LogoTitle = (props) => {
     return(
         <Image 
             source={Logo} 
