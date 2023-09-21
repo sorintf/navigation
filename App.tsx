@@ -3,7 +3,7 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { View, Text } from 'react-native';
+import { View, Text, Button } from 'react-native';
 
 import Home from './src/home';
 import Users from './src/users';
@@ -39,12 +39,31 @@ function App() {
         <Stack.Screen 
           name="Users" 
           component={Users} 
-          initialParams={{ id:1, codeName:'Iron Horse' }}
-          options={{
-            // this is replacing the structure of the title so the styling is no longer applied
-            // headerTitle: props => LogoTitle(props)
-            // title:'x-users'
-          }}
+          initialParams={{ id:1, codeName:'Iron Horse' }}           
+          options={({navigation})=>({
+            
+            headerLeft:()=><Button
+              title="go home"
+              onPress={ () => navigation.navigate('Home') }
+            />
+          })}
+            
+            
+          //   {
+          //   headerLeft:()=><Button
+          //     title="do less"
+          //     onPress={ () => alert('less') }
+          //   />,
+          //   headerRight:()=><Button
+          //     title="do more"
+          //     onPress={ () => alert('more') }
+          //   />
+
+          //   // this is replacing the structure of the title so the styling is no longer applied
+          //   // headerTitle: props => LogoTitle(props)
+          //   // title:'x-users'
+          //   // headerShown:false 
+          // }}
         />
       </Stack.Navigator>
     </NavigationContainer>
